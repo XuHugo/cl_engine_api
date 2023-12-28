@@ -1,0 +1,49 @@
+[package]
+name = "eth2"
+version = "0.1.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.11", default-features = false, features = [
+    "blocking",
+    "json",
+    "stream",
+    "rustls-tls",
+] }
+
+ethereum_serde_utils = "0.5"
+libsecp256k1 = "0.7"
+ring = "0.16"
+bytes = "1"
+ethereum_ssz = "0.5"
+ethereum_ssz_derive = "0.5"
+futures-util = "0.3.8"
+futures = "0.3"
+mediatype = "0.19.13"
+mime = "0.3.16"
+
+pretty_reqwest_error = { path = "../pretty_reqwest_error" }
+account_utils = { path = "../account_utils" }
+sensitive_url = { path = "../sensitive_url" }
+proto_array = { path = "../../consensus/proto_array" }
+eth2_keystore = { path = "../../crypto/eth2_keystore" }
+store = { path = "../../beacon_node/store" }
+slashing_protection = { path = "../../validator_client/slashing_protection" }
+lighthouse_network = { path = "../../beacon_node/lighthouse_network" }
+types = { path = "../../consensus/types" }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "sync"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+psutil = { version = "3.2.2", optional = true }
+procfs = { version = "0.15.1", optional = true }
+
+[features]
+default = ["lighthouse"]
+lighthouse = ["psutil", "procfs"]

@@ -1,0 +1,17 @@
+[package]
+name = "task_executor"
+version = "0.1.0"
+authors = ["Sigma Prime <contact@sigmaprime.io>"]
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "sync"] }
+slog = { version = "2", features = [
+    "max_level_trace",
+    "release_max_level_trace",
+] }
+futures = "0.3"
+exit-future = "0.2"
+lazy_static = "1"
+lighthouse_metrics = { path = "../lighthouse_metrics" }
+sloggers = { version = "2", features = ["json"] }

@@ -1,0 +1,32 @@
+[package]
+name = "store"
+version = "0.2.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = "2021"
+
+# [dev-dependencies]
+# tempfile = { workspace = true }
+# beacon_chain = { workspace = true }
+
+[dependencies]
+db-key = "0.0.5"
+leveldb = { version = "0.8" }
+parking_lot = "0.12"
+itertools = "0.10"
+ethereum_ssz = "0.5"
+ethereum_ssz_derive = "0.5"
+slog = { version = "2", features = [
+    "max_level_trace",
+    "release_max_level_trace",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_derive = "1.0.116"
+lazy_static = "1"
+lru = "0.7"
+sloggers = { version = "2", features = ["json"] }
+strum = { version = "0.24", features = ["derive"] }
+
+types = { path = "../../consensus/types" }
+state_processing = { path = "../../consensus/state_processing" }
+lighthouse_metrics = { path = "../../common/lighthouse_metrics" }
+directory = { path = "../../common/directory" }

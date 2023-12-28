@@ -1,0 +1,71 @@
+[package]
+name = "execution_layer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+tokio = { version = "1", features = ["rt-multi-thread", "sync"] }
+async-trait = "0.1.51"
+slog = { version = "2", features = [
+    "max_level_trace",
+    "release_max_level_trace",
+] }
+futures = "0.3"
+reqwest = { version = "0.11", default-features = false, features = [
+    "blocking",
+    "json",
+    "stream",
+    "rustls-tls",
+] }
+ethereum_serde_utils = "0.5"
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+warp = { git = "https://github.com/seanmonstar/warp.git", tag = "v0.3.5", default-features = false, features = [
+    "tls",
+] }
+jsonwebtoken = "8"
+bytes = "1"
+hex = "0.4"
+ethereum_ssz = "0.5"
+ssz_types = "0.5"
+superstruct = "0.6"
+lru = "0.7"
+exit-future = "0.2"
+tree_hash = "0.5"
+tree_hash_derive = "0.5"
+parking_lot = "0.12"
+tempfile = "3"
+rand = "0.8"
+zeroize = { version = "1", features = ["zeroize_derive"] }
+lazy_static = "1"
+ethers-core = "1"
+mev-rs = { git = "https://github.com/ralexstokes/mev-rs", rev = "216657016d5c0889b505857c89ae42c7aa2764af" }
+axum = "0.6"
+hyper = "0.14"
+ethereum-consensus = { git = "https://github.com/ralexstokes/ethereum-consensus", rev = "e380108" }
+ssz_rs = "0.9.0"
+tokio-stream = { version = "0.1", features = ["sync"] }
+strum = { version = "0.24", features = ["derive"] }
+keccak-hash = "0.10.0"
+hash256-std-hasher = "0.15.2"
+triehash = "0.8.4"
+hash-db = "0.15.2"
+arc-swap = "1.6.0"
+
+
+lighthouse_metrics = { path = "../common/lighthouse_metrics" }
+slot_clock = { path = "../common/slot_clock" }
+pretty_reqwest_error = { path = "../common/pretty_reqwest_error" }
+task_executor = { path = "../common/task_executor" }
+sensitive_url = { path = "../common/sensitive_url" }
+fork_choice = { path = "../consensus/fork_choice" }
+state_processing = { path = "../consensus/state_processing" }
+types = { path = "../consensus/types" }
+
+eth2 = { path = "../common/eth2" }
+builder_client = { path = "../builder_client" }
+
+#environment = { path = "environment" }

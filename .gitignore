@@ -1,0 +1,33 @@
+### generated files ###
+bin/
+target/
+log/
+data/
+.idea/
+*/.idea/
+.vscode/
+.cargo/
+.cargo-remote.toml
+*.bin
+*.iml
+
+### macOS Specific ignores ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Other ###
+temp/
+**/target
+**/*.rs.bk
+/.idea
+*.swo
+*.swp
+nohup.out
+
+### aptos doc
+gg-move/framework/aptos-framework/doc/
+gg-move/framework/aptos-stdlib/doc/
+gg-move/framework/aptos-token/doc/
+*.mvsm
+

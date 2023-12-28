@@ -1,0 +1,21 @@
+[package]
+name = "cached_tree_hash"
+version = "0.1.0"
+authors = ["Michael Sproul <michael@sigmaprime.io>"]
+edition = "2021"
+
+[dependencies]
+ethereum-types = "0.14"
+ssz_types = "0.5"
+ethereum_hashing = "1.0.0-beta.2"
+ethereum_ssz_derive = "0.5"
+ethereum_ssz = "0.5"
+tree_hash = "0.5"
+smallvec = "1"
+
+# [dev-dependencies]
+# quickcheck = { workspace = true }
+# quickcheck_macros = { workspace = true }
+
+[features]
+arbitrary = ["ethereum-types/arbitrary"]
